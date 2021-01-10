@@ -19,5 +19,9 @@ h2 {
 }
 
 a {
-  font-size: .6rem;
+  font-size: 0.6rem;
+}
+
+.bg-muted {
+  background: #f2f2f2;
 }

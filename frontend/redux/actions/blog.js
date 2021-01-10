@@ -139,3 +139,37 @@ export const getRelatedBlog = (data) => async (dispatch) => {
     payload: res.data,
   });
 };
+
+export const getLatestBLog = (data) => async (dispatch) => {
+  const res = await initialAxios.get("/blog/latest");
+
+  dispatch({
+    type: blogContstants.GET_LATEST_BLOG_SUCCESS,
+    payload: res.data,
+  });
+};
+
+export const getBlogByCategory = (slug) => async (dispatch) => {
+  try {
+    dispatch({
+      type: blogContstants.GET_BLOG_BY_CATEGORY_REQUEST,
+    });
+
+    const res = await initialAxios.get(`/category/${slug}`);
+
+    dispatch({
+      type: blogContstants.GET_BLOG_BY_CATEGORY_SUCCESS,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: blogContstants.GET_BLOG_BY_CATEGORY_FAILURE,
+      payload: {
+        error:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      },
+    });
+  }
+};

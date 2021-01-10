@@ -10,6 +10,7 @@ const {
   getSingleBlog,
   getPhoto,
   getRelated,
+  getLatestBlog,
 } = require("../controllers/blog.js");
 
 // middleware
@@ -26,6 +27,8 @@ const {
 } = require("../validators/blog");
 
 // routes
+router.get("/blog/latest", getLatestBlog);
+
 router
   .route("/blog")
   .get(getAllBlog)

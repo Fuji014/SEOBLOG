@@ -105,6 +105,25 @@ function blogReducer(state = initialState, action) {
         loading: false,
         error: action.payload.error,
       };
+
+    // get Blog by category
+    case blogContstants.GET_BLOG_BY_CATEGORY_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case blogContstants.GET_BLOG_BY_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        blogs: action.payload,
+      };
+    case blogContstants.GET_BLOG_BY_CATEGORY_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+      };
     // get photo blog
     case blogContstants.GET_PHOTO_BLOG_SUCCESS:
       return {
@@ -116,6 +135,12 @@ function blogReducer(state = initialState, action) {
       return {
         ...state,
         relatedBlog: action.payload,
+      };
+    // get latest blog
+    case blogContstants.GET_LATEST_BLOG_SUCCESS:
+      return {
+        ...state,
+        latestBlog: action.payload,
       };
     // reset blog
     case blogContstants.RESET_BLOG_SUCCESS:

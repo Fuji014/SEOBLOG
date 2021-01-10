@@ -14,6 +14,7 @@ import { Row, Col, ListGroup, ListGroupItem } from "reactstrap";
 import Layout from "../../../../components/Layout";
 import Loader from "../../../../components/Loader";
 import Message from "../../../../components/Message";
+import RelatedBlog from "../../../../components/Blog/RelatedBlog";
 
 // env
 import { APP_NAME, DOMAIN, FB_APP_ID, API } from "../../../../config";
@@ -152,22 +153,8 @@ function blogSingle(props) {
                         </text>
                       </div>
                     </ListGroupItem>
-                    <h4 className="p-3">Related Blogs</h4>
-                    {relatedBlog?.map((x) => (
-                      <ListGroupItem>
-                        <div className="d-flex justify-content-between">
-                          <Image
-                            src={`${API}/blog/photo/${x.slug}`}
-                            alt={x.title}
-                            className="img-fluid"
-                            width={100}
-                            height={60}
-                          />
-
-                          <h5>{x.title}</h5>
-                        </div>
-                      </ListGroupItem>
-                    ))}
+                    {/* related blog component */}
+                    <RelatedBlog relatedBlog={relatedBlog} />
                   </ListGroup>
                 </Col>
               </Row>

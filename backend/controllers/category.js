@@ -1,4 +1,5 @@
 const Category = require("../models/category");
+const Blog = require("../models/blog");
 const asyncHandler = require("express-async-handler");
 const slugify = require("slugify");
 
@@ -47,8 +48,13 @@ exports.getSingleCategory = asyncHandler(async (req, res) => {
 
   const category = await Category.findOne({ slug });
 
-  if (category) {
-    res.status(200).json(category);
+  const blogs = await Blog.find({ categories: category, status: { $eq: true } })
+    .populate("categories", "_id name slug")
+    .populate("tags", "_id name slug")
+    .populate("postedBy", "_id name");
+
+  if (blogs) {
+    res.status(200).json(blogs);
   } else {
     res.status(400);
     throw new Error("Category not found");

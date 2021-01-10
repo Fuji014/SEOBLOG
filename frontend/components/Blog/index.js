@@ -16,7 +16,7 @@ function Blog({ blog }) {
           <div className="d-flex">
             {blog.categories.map((y) => (
               <p className="mr-2" key={y._id}>
-                <Link href="/">
+                <Link href={`/category/${y.slug}`}>
                   <a className="text-decoration-none text-white bg-primary p-1">
                     {y.name.toUpperCase()}
                   </a>
@@ -48,14 +48,18 @@ function Blog({ blog }) {
           </div>
         </Col>
         <Col md={4}>
-          <Image
-            src={`http://localhost:8000/api/blog/photo/${blog.slug}`}
-            alt={blog.name}
-            layout="responsive"
-            width={550}
-            height={450}
-            className="img-fluid shadow  mb-5"
-          />
+          <Link href={`/admin/blog/${blog.slug}`}>
+            <a className="text-decoration-none">
+              <Image
+                src={`http://localhost:8000/api/blog/photo/${blog.slug}`}
+                alt={blog.name}
+                layout="responsive"
+                width={550}
+                height={450}
+                className="img-fluid shadow  mb-5"
+              />
+            </a>
+          </Link>
         </Col>
       </Row>
     </ListGroupItem>

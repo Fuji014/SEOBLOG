@@ -321,3 +321,19 @@ exports.getRelated = asyncHandler(async (req, res) => {
     throw new Error("Something went wrong");
   }
 });
+
+// @desc Get latest blog
+// @route GET /api/blog/latest
+// @access Public
+exports.getLatestBlog = asyncHandler(async (req, res) => {
+  const latestBlog = await Blog.find({ status: { $eq: true } }).sort({
+    updatedAt: 1,
+  });
+
+  if (latestBlog) {
+    res.status(200).json(latestBlog);
+  } else {
+    res.status(400);
+    throw new Error("Something went wrong");
+  }
+});
