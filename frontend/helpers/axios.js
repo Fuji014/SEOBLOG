@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API } from "../config";
-import { getCookie } from "../redux/actions/user";
+import { getCookie } from "../redux/actions/auth";
 
 const initialAxios = axios.create({
   baseURL: API,

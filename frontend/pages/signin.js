@@ -13,17 +13,17 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 
 // actions
-import { userLogin, userLoginReset, isAuth } from "../redux/actions/user";
+import { userLogin, userLoginReset, isAuth } from "../redux/actions/auth";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
 
-const signin = (props) => {
+const SignIn = (props) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
   // user state
-  const userState = useSelector((state) => state.user);
+  const userState = useSelector((state) => state.auth);
   const { error, loading, success } = userState;
 
   // useState
@@ -94,4 +94,4 @@ const signin = (props) => {
   );
 };
 
-export default signin;
+export default SignIn;

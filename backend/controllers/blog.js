@@ -327,7 +327,7 @@ exports.getRelated = asyncHandler(async (req, res) => {
 // @access Public
 exports.getLatestBlog = asyncHandler(async (req, res) => {
   const latestBlog = await Blog.find({ status: { $eq: true } }).sort({
-    updatedAt: 1,
+    updatedAt: -1,
   });
 
   if (latestBlog) {

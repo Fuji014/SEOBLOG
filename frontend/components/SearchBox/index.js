@@ -31,7 +31,7 @@ function SearchBox(props) {
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
       />
-      <Button className="btn btn-outline-secondary my-2 my-sm-0" type="submit">
+      <Button color="primary" className="my-2 my-sm-0" type="submit">
         Search
       </Button>
     </Form>

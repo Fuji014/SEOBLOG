@@ -4,14 +4,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import rootReducer from "./reducers/";
 
 // actions
-import { getLocalStorage } from "./actions/user";
+import { getLocalStorage } from "./actions/auth";
 
 const userLogged = getLocalStorage("user")
   ? JSON.parse(getLocalStorage("user"))
   : {};
 
 const initialState = {
-  user: {
+  auth: {
     userLogged: {
       userInfo: userLogged,
     },

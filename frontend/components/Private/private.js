@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Router from "next/router";
 
 // actions
-import { isAuth } from "../../redux/actions/user";
+import { isAuth } from "../../redux/actions/auth";
 
 // redux
 import { useSelector } from "react-redux";

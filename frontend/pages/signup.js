@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 
 // actions
-import { userSignup, userSignupReset, isAuth } from "../redux/actions/user";
+import { userSignup, userSignupReset, isAuth } from "../redux/actions/auth";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
@@ -18,12 +18,12 @@ import FormContainer from "../components/UI/FormContainer";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 
-const signup = () => {
+const SignUp = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
   // user state
-  const userState = useSelector((state) => state.user);
+  const userState = useSelector((state) => state.auth);
   const { loading, error, success } = userState;
 
   const [name, setName] = useState("");
@@ -118,4 +118,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default SignUp;

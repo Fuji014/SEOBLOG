@@ -109,7 +109,7 @@ function blogSingle(props) {
                         <h6>Categories: </h6>
                         {createdBlog?.categories.map((x) => (
                           <p className="p-2" key={x._id}>
-                            <Link href="/">
+                            <Link href={`/category/${x.slug}`}>
                               <a className="text-decoration-none text-white bg-primary p-1">
                                 {x.name.toUpperCase()}
                               </a>

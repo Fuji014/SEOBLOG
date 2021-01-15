@@ -31,7 +31,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 // actions
-import { isAuth, userSignOut } from "../../redux/actions/user";
+import { isAuth, userSignOut } from "../../redux/actions/auth";
 
 // nprogress
 import NProgress from "nprogress"; //nprogress module
@@ -45,7 +45,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   // user state
-  const userState = useSelector((state) => state.user);
+  const userState = useSelector((state) => state.auth);
   const { userLogged } = userState;
 
   const router = useRouter();
@@ -63,7 +63,7 @@ const Header = () => {
   // debug area
 
   return (
-    <Navbar className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <Container>
         <NavbarBrand style={{ cursor: "pointer" }} onClick={navBrandHandle}>
           {APP_NAME}
