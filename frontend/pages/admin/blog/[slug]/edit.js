@@ -143,7 +143,6 @@ function blogEdit(props) {
 
   const uploadHandle = (e) => {
     setPhoto(e.target.files[0]);
-    console.log(photo);
   };
 
   const updateBlogHandler = (e) => {

@@ -33,7 +33,7 @@ import Image from "next/image";
 import { compose } from "redux";
 import { connect } from "react-redux";
 
-function ProfileUser(props) {
+function UserProfile(props) {
   // destruct props
   const { user: userProfile, getPublicUser, router } = props;
 
@@ -133,4 +133,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
-)(ProfileUser);
+)(UserProfile);

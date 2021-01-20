@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 // @route POST /api/signup
 // @access  Public
 exports.signup = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, about } = req.body;
 
   const userExist = await User.findOne({ email });
 
@@ -25,6 +25,7 @@ exports.signup = asyncHandler(async (req, res) => {
     password,
     profile,
     username,
+    about,
   });
 
   if (userCreate) {

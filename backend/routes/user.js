@@ -2,7 +2,12 @@ const express = require("express");
 const router = express.Router();
 
 // controller
-const { getUserProfile, getPublicProfile } = require("../controllers/user");
+const {
+  getUserProfile,
+  getPublicProfile,
+  updateUserProfile,
+  getUserPhoto,
+} = require("../controllers/user");
 
 // middleware
 const {
@@ -11,7 +16,12 @@ const {
   adminMiddleware,
 } = require("../middleware/auth.middleware");
 
-router.get("/profile", requireSignin, authMiddleware, getUserProfile);
+router
+  .route("/profile")
+  .get(requireSignin, authMiddleware, getUserProfile)
+  .put(requireSignin, authMiddleware, updateUserProfile);
+
+router.get("/profile/:username", getUserPhoto);
 
 router.get("/user/:username", getPublicProfile);
 

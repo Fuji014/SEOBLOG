@@ -204,7 +204,7 @@ exports.updateBlog = asyncHandler(async (req, res) => {
         });
       }
 
-      // re-destructure
+      // destruct fields
       const { title, body, status, categories, tags } = fields;
 
       // validation

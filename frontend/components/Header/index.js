@@ -88,6 +88,9 @@ const Header = () => {
                       <Link href="/admin">
                         <DropdownItem>Dashboard</DropdownItem>
                       </Link>
+                      <Link href="/profile">
+                        <DropdownItem>Profile</DropdownItem>
+                      </Link>
                       <Link href="/admin/blog">
                         <DropdownItem>Blog</DropdownItem>
                       </Link>
