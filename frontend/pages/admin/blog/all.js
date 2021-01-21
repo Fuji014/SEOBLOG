@@ -65,7 +65,7 @@ function BlogAll(props) {
         ) : (
           <>
             <ListGroup className="list-group-flush">
-              {blogs.map((x) => x.status && <Blog blog={x} />)}
+              {blogs.map((x) => x.status && <Blog blog={x} key={x._id} />)}
             </ListGroup>
             <Paginate
               pages={pages}

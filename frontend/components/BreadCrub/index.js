@@ -11,13 +11,11 @@ function BreadCrub(props) {
   return (
     <Nav aria-label="breadcrumb">
       <ol className="breadcrumb">
-        {bread.map((x) => (
-          <li className="breadcrumb-item">
-            <h5>
-              <Link href={x.path}>
-                <a>{x.name}</a>
-              </Link>
-            </h5>
+        {bread.map((x, i) => (
+          <li className="breadcrumb-item" key={i}>
+            <Link href={x.path}>
+              <a className="text-decoration-none">{x.name}</a>
+            </Link>
           </li>
         ))}
       </ol>
@@ -27,8 +25,8 @@ function BreadCrub(props) {
 
 BreadCrub.defaultProps = {
   bread: [
-    { name: "Test", path: "/" },
-    { name: "Data", path: "/" },
+    { name: "Test", path: "/", active: false },
+    { name: "Data", path: "/", active: true },
   ],
 };
 

@@ -71,6 +71,9 @@ const ProfileIndex = (props) => {
     form.append("password", password);
     form.append("photo", photo);
     updateUserProfile(form);
+
+    // reset field onsubmit
+    setPassword("");
   };
 
   const uploadHandle = (e) => {
@@ -81,7 +84,6 @@ const ProfileIndex = (props) => {
     <Layout>
       <Private>
         <BreadCrub />
-
         {loading ? (
           <Loader />
         ) : error ? (
@@ -152,6 +154,7 @@ const ProfileIndex = (props) => {
                           <section>
                             <div className="row">
                               <Image
+                                key={profileData._id}
                                 src={`${API}/profile/${profileData.username}`}
                                 alt={profileData.name}
                                 className="img-fluid"

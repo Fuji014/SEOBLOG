@@ -20,7 +20,7 @@ function Admin(props) {
     } else if (isAuth().role === 0) {
       Router.push("/");
     }
-  }, [Router, userLogged]);
+  }, [Router, userLogged, isAuth]);
 
   return <>{props.children}</>;
 }

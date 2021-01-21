@@ -16,7 +16,7 @@ function Private(props) {
 
   useEffect(() => {
     !isAuth() && Router.push("/signin");
-  }, [Router, userLogged]);
+  }, [Router, userLogged, isAuth]);
 
   return <>{props.children}</>;
 }

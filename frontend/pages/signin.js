@@ -82,7 +82,7 @@ const SignIn = (props) => {
               onChange={(e) => setPassword(e.target.value)}
             ></Input>
           </FormGroup>
-          <Button color="primary">REGISTER</Button>
+          <Button color="primary">LOGIN</Button>
           <Row className="py-3">
             <Col>
               New User? <a>Signup</a>

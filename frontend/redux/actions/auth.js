@@ -5,7 +5,7 @@ import cookie from "js-cookie";
 export const userSignup = (data) => async (dispatch) => {
   try {
     dispatch({
-      type: userConstants.AUTH_SIGNUP_REQUEST,
+      type: authConstants.AUTH_SIGNUP_REQUEST,
     });
 
     const res = await initialAxios.post("/signup", data);
